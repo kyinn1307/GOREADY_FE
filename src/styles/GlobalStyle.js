@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
         display: flex;
         justify-content: center;
         margin : 0;
-        font-family : "Pretendard"
+        font-family : "Pretendard";
 
         @media all and (max-width: 780px) {
             width : 100lvw;
