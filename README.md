@@ -1,10 +1,8 @@
 # 외출준비 GoReady Frontend Repository
 
----
 
 ## Initial Setting
 
----
 
 - styled-components
 
@@ -14,7 +12,6 @@ npm i styled-components
 
 ## Commit Convention
 
----
 
 **Convention Type**
 
@@ -31,7 +28,6 @@ npm i styled-components
 
 ## Branch
 
----
 
 - ‘develop-페이지명’ 으로 브랜치 생성 후, push
 - 이후, develop 브랜치로 PR
