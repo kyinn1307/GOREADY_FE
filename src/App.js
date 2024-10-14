@@ -1,9 +1,16 @@
-import logo from "./logo.svg";
+import { Route, Routes } from "react-router-dom";
+import { GlobalStyle } from "./styles/GlobalStyle";
+import { LocationPermissionPage } from "./pages/LocationPermissionPage";
 
 function App() {
-  <Routes>
-    <Route path="/" element={<MainPage />} />
-  </Routes>;
+  return (
+    <>
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<LocationPermissionPage />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
