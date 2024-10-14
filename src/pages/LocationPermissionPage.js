@@ -24,8 +24,8 @@ export const LocationPermissionPage = () => {
       />
       <Button
         text="위치 권한 허용하기"
-        top={692}
-        left={124}
+        top={663}
+        left={99}
         backgroundColor={"#000000"}
       />
     </Container>
