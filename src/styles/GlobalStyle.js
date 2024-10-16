@@ -1,8 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     body {
-    
+        display: flex;
+        justify-content: center;
+        margin : 0;
+        font-family : "Pretendard";
+
+        @media all and (max-width: 780px) {
+            width : 100lvw;
+            height : 100 lvh
+        }
     }
-    // 앱에서 스타일 설정 (< 500px)
 `;
