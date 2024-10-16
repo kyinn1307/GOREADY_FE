@@ -7,9 +7,9 @@ export const GlobalStyle = createGlobalStyle`
         margin : 0;
         font-family : "Pretendard";
 
-        @media all and (max-width: 780px) {
-            width : 100lvw;
-            height : 100 lvh
+        @media all and (max-width: 780px) { 
+            width: 100vw;
+            height: 852px;
         }
     }
 `;
