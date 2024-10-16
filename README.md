@@ -1,10 +1,7 @@
 # 외출준비 GoReady Frontend Repository
 
----
 
 ## Initial Setting
-
----
 
 - styled-components
 
@@ -12,9 +9,9 @@
 npm i styled-components
 ```
 
+
 ## Commit Convention
 
----
 
 **Convention Type**
 
@@ -29,9 +26,8 @@ npm i styled-components
 | `test`          | 테스트 코드 추가 및 수정, 삭제      |
 | `refactor`      | 코드 리팩토링                       |
 
-## Branch
 
----
+## Branch
 
 - ‘develop-페이지명’ 으로 브랜치 생성 후, push
 - 이후, develop 브랜치로 PR
