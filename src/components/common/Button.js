@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
-export const Button = ({ left, top, text, backgroundColor }) => {
+export const Button = ({ onClick, left, top, text, backgroundColor }) => {
   return (
-    <ButtonBox top={top} left={left} backgroundColor={backgroundColor}>
+    <ButtonBox
+      onClick={onClick}
+      top={top}
+      left={left}
+      backgroundColor={backgroundColor}
+    >
       <ButtonText>{text}</ButtonText>
     </ButtonBox>
   );
 };
 
 const ButtonBox = styled.div`
+  cursor: pointer;
   position: absolute;
   display: flex;
   justify-content: center;

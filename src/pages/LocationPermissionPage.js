@@ -3,7 +3,27 @@ import { ReactComponent as MapImage } from "../assets/images/mapImage.svg";
 import { ReactComponent as LocationButton } from "../assets/images/locationButton.svg";
 import { TextBox } from "../components/common/TextBox";
 import { Button } from "../components/common/Button";
+import { useGeoLocation } from "../hooks/useGeoLocation";
+import { useEffect } from "react";
+
+const geolocationOptions = {
+  enableHighAccuracy: true,
+  timeout: 1000 * 10,
+  maximumAge: 1000 * 3600 * 24,
+};
+
 export const LocationPermissionPage = () => {
+  const { location, error, getLocation } = useGeoLocation(geolocationOptions);
+
+  useEffect(() => {
+    if (location) {
+      console.log({ location });
+    }
+    if (error) {
+      console.log("Error:", error);
+    }
+  }, [location, error]);
+
   return (
     <Container>
       <StyledLocationButton />
@@ -27,6 +47,7 @@ export const LocationPermissionPage = () => {
         top={663}
         left={99}
         backgroundColor={"#000000"}
+        onClick={getLocation}
       />
     </Container>
   );
