@@ -30,21 +30,21 @@ export const LocationPermissionPage = () => {
       <StyledMapImage />
       <TextBox
         text="반가워요 ,"
-        top={481}
+        top={427}
         left={57}
         fontSize={18}
         fontWeight={400}
       />
       <TextBox
         text={"외출준비는 사용자의 위치가\n필요해요!"}
-        top={528}
+        top={474}
         left={56}
         fontSize={25}
         fontWeight={600}
       />
       <Button
         text="위치 권한 허용하기"
-        top={663}
+        top={609}
         left={99}
         backgroundColor={"#000000"}
         onClick={getLocation}
@@ -58,18 +58,18 @@ const Container = styled.div`
   position: relative;
   justify-content: center;
   width: 393px;
-  height: 852px;
+  height: 798px;
 `;
 
 const StyledLocationButton = styled(LocationButton)`
   position: absolute;
   left: 322px;
-  top: 112px;
+  top: 58px;
   cursor: pointer;
 `;
 
 const StyledMapImage = styled(MapImage)`
   position: absolute;
-  top: 171px;
+  top: 117px;
   left: 82px;
 `;
