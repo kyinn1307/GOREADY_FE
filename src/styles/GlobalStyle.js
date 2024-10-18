@@ -6,10 +6,10 @@ export const GlobalStyle = createGlobalStyle`
         justify-content: center;
         margin : 0;
         font-family : "Pretendard";
-
-        @media all and (max-width: 780px) {
-            width : 100lvw;
-            height : 100 lvh
+        
+        @media all and (max-width: 780px) { 
+            width: 100vw;
+            height: 798px;
         }
     }
 `;
