@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         
         @media all and (max-width: 780px) { 
             width: 100vw;
-            height: 798px;
+            height: 100dvh;
         }
     }
 `;
