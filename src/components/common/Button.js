@@ -2,12 +2,7 @@ import styled from "styled-components";
 
 export const Button = ({ onClick, left, top, text, backgroundColor }) => {
   return (
-    <ButtonBox
-      onClick={onClick}
-      top={top}
-      left={left}
-      backgroundColor={backgroundColor}
-    >
+    <ButtonBox onClick={onClick} backgroundColor={backgroundColor}>
       <ButtonText>{text}</ButtonText>
     </ButtonBox>
   );
@@ -15,14 +10,14 @@ export const Button = ({ onClick, left, top, text, backgroundColor }) => {
 
 const ButtonBox = styled.div`
   cursor: pointer;
-  position: absolute;
+  position: relative;
   display: flex;
+  margin-top: 103px;
+  margin-bottom: 130px;
   justify-content: center;
   align-items: center;
   width: 197px;
   height: 59px;
-  left: ${(props) => props.left}px;
-  top: ${(props) => props.top}px;
   background-color: ${(props) => props.backgroundColor};
   border-radius: 31px;
 `;
