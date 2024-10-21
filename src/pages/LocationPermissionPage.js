@@ -58,7 +58,6 @@ const Container = styled.div`
   position: relative;
   justify-content: center;
   width: 393px;
-  height: 798px;
 `;
 
 const StyledLocationButton = styled(LocationButton)`
