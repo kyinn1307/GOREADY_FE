@@ -1,14 +1,18 @@
-import logo from "./logo.svg";
+import { Route, Routes } from "react-router-dom";
+import { GlobalStyle } from "./styles/GlobalStyle";
+import { LocationPermissionPage } from "./pages/LocationPermissionPage";
+import { useEffect } from "react";
+import GoreadyInfoPage from "./pages/GoreadyInfoPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<LocationPermissionPage />} />
+        <Route path="/info" element={<GoreadyInfoPage />} />
+      </Routes>
+    </>
   );
 }
 
