@@ -3,12 +3,12 @@
 
 ## Initial Setting
 
-
 - styled-components
 
 ```bash
 npm i styled-components
 ```
+
 
 ## Commit Convention
 
@@ -27,8 +27,8 @@ npm i styled-components
 | `refactor` | 코드 리팩토링 |
 | `design` | css 수정 |
 
-## Branch
 
+## Branch
 
 - ‘develop-페이지명’ 으로 브랜치 생성 후, push
 - 이후, develop 브랜치로 PR
