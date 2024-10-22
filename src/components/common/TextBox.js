@@ -15,7 +15,7 @@ export const TextBox = ({ text, width, height, fontSize, fontWeight }) => {
 
 const TextLabel = styled.div`
   font-size: ${(props) => props.fontSize}px;
-  font-weight: ${(props) => props.fontWeight}px;
+  font-weight: ${(props) => props.fontWeight};
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
   white-space: pre-line; /* 줄바꿈 적용 */
