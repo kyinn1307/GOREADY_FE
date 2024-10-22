@@ -25,6 +25,7 @@ npm i styled-components
 | `rename` | 파일 및 폴더 이름 변경 |
 | `test` | 테스트 코드 추가 및 수정, 삭제 |
 | `refactor` | 코드 리팩토링 |
+| `design` | css 수정 |
 
 ## Branch
 
