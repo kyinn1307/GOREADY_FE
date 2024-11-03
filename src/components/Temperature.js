@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import { ReactComponent as LocationButton } from "../assets/images/locationButton.svg";
 
 const TemperatureContainer = styled.div`
@@ -12,17 +12,16 @@ const TemperatureContainer = styled.div`
 const StyledLocationButton = styled(LocationButton)`
   position: absolute;
   left: 0px;
-  top: 99px;  
+  top: 95px;
   width: 23px;
   height: 20px;
 `;
 
 const LocationText = styled.span`
   position: absolute;
-  top: 109px;
+  top: 105px;
   left: 30px;
   color: #000;
-  font-family: Pretendard;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
@@ -31,10 +30,9 @@ const LocationText = styled.span`
 
 const TemperatureText = styled.h3`
   position: absolute;
-  top: 152px;
+  top: 115px;
   left: 0;
   color: #000;
-  font-family: Pretendard;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -42,10 +40,9 @@ const TemperatureText = styled.h3`
 
 const TemperatureValue = styled.p`
   position: absolute;
-  top: 208px;
+  top: 170px;
   left: 202px;
-  color: var(--WF-Base-800, #2D3648);
-  font-family: Inter;
+  color: var(--WF-Base-800, #2d3648);
   font-size: 40px;
   font-style: normal;
   font-weight: 300;
@@ -53,12 +50,10 @@ const TemperatureValue = styled.p`
   letter-spacing: 0.4px;
 `;
 
-
 const TemperatureRange = styled.div`
   position: absolute;
-  top: 227px;
+  top: 217px;
   left: 0;
-  font-family: Inter;
   font-style: normal;
 
   span {
@@ -73,24 +68,26 @@ const TemperatureRange = styled.div`
 
   .high {
     font-size: 16px;
-    color: #F40;
+    color: #f40;
   }
-
-  .change {
-    color: #FF4500;
-    font-size: 13px;
-  }
-
   .arrow {
+    margin-left: 15px;
     color: black;
     font-size: 16px;
   }
+  .change {
+    margin-left: 5px;
+    color: #ff4500;
+    font-size: 13px;
+  }
+
+  
 `;
 
 const Temperature = () => {
   return (
     <TemperatureContainer>
-      <StyledLocationButton/>
+      <StyledLocationButton />
       <LocationText>노원구 공릉동</LocationText>
       <TemperatureText>오늘의 기온은 어제와 비슷해요</TemperatureText>
       <TemperatureValue>13°C</TemperatureValue>
