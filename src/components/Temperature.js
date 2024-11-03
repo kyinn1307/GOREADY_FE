@@ -12,17 +12,16 @@ const TemperatureContainer = styled.div`
 const StyledLocationButton = styled(LocationButton)`
   position: absolute;
   left: 0px;
-  top: 99px;
+  top: 95px;
   width: 23px;
   height: 20px;
 `;
 
 const LocationText = styled.span`
   position: absolute;
-  top: 109px;
+  top: 105px;
   left: 30px;
   color: #000;
-  font-family: Pretendard;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
@@ -31,10 +30,9 @@ const LocationText = styled.span`
 
 const TemperatureText = styled.h3`
   position: absolute;
-  top: 152px;
+  top: 115px;
   left: 0;
   color: #000;
-  font-family: Pretendard;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -42,10 +40,9 @@ const TemperatureText = styled.h3`
 
 const TemperatureValue = styled.p`
   position: absolute;
-  top: 208px;
+  top: 170px;
   left: 202px;
   color: var(--WF-Base-800, #2d3648);
-  font-family: Inter;
   font-size: 40px;
   font-style: normal;
   font-weight: 300;
@@ -55,9 +52,8 @@ const TemperatureValue = styled.p`
 
 const TemperatureRange = styled.div`
   position: absolute;
-  top: 227px;
+  top: 217px;
   left: 0;
-  font-family: Inter;
   font-style: normal;
 
   span {
@@ -74,16 +70,18 @@ const TemperatureRange = styled.div`
     font-size: 16px;
     color: #f40;
   }
-
+  .arrow {
+    margin-left: 15px;
+    color: black;
+    font-size: 16px;
+  }
   .change {
+    margin-left: 5px;
     color: #ff4500;
     font-size: 13px;
   }
 
-  .arrow {
-    color: black;
-    font-size: 16px;
-  }
+  
 `;
 
 const Temperature = () => {

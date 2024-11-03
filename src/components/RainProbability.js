@@ -13,7 +13,6 @@ const RainText = styled.h3`
   top: 550px;
   left: 0;
   color: #000;
-  font-family: Pretendard;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -22,10 +21,9 @@ const RainText = styled.h3`
 
 const RainValue = styled.p`
   position: absolute;
-  top: 561px;
+  top: 524px;
   left: 210px;
   color: var(--WF-Base-800, #2d3648);
-  font-family: Inter;
   font-size: 40px;
   font-style: normal;
   font-weight: 300;
@@ -38,7 +36,6 @@ const RainMessage = styled.small`
   top: 615px;
   left: 0;
   color: #f40;
-  font-family: Pretendard;
   font-size: 25px;
   font-style: normal;
   font-weight: 400;

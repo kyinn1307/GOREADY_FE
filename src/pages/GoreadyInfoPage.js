@@ -5,9 +5,10 @@ import Mask from "../components/Mask";
 import RainProbability from "../components/RainProbability";
 
 const MainPageContainer = styled.div`
+  display: flex;
   position: relative;
+  justify-content:center;
   width: 393px;
-  height: 852px;
   background-color: #fafafa;
 `;
 
