@@ -14,9 +14,10 @@ const MainPageContainer = styled.div`
 
 const Divider = styled.div`
   position: absolute;
+  justify-content:center;
   top: ${(props) => props.top}px;
   left: 11px;
-  width: 369px;
+  width: 100%;
   height: 1px;
   background-color: #ebedf0;
 `;
@@ -27,8 +28,8 @@ const GoreadyInfoPage = () => {
       <Temperature />
       <Mask />
       <RainProbability />
-      <Divider top={305} />
-      <Divider top={524} />
+      <Divider top={270} />
+      <Divider top={489} />
     </MainPageContainer>
   );
 };

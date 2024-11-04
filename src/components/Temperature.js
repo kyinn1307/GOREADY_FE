@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { ReactComponent as LocationButton } from "../assets/images/locationButton.svg";
+import '../fonts/fonts.css';
 
 const TemperatureContainer = styled.div`
   position: absolute;
-  top: 0px;
-  left: 49px;
+  top: -35px;
+  left: 59px;
   width: 100%;
 `;
 
@@ -44,6 +45,7 @@ const TemperatureValue = styled.p`
   left: 202px;
   color: var(--WF-Base-800, #2d3648);
   font-size: 40px;
+  font-family:'Inter';
   font-style: normal;
   font-weight: 300;
   line-height: 120%; /* 48px */
@@ -55,6 +57,7 @@ const TemperatureRange = styled.div`
   top: 217px;
   left: 0;
   font-style: normal;
+  font-family:'Inter';
 
   span {
     margin-right: 5px;
@@ -88,7 +91,7 @@ const Temperature = () => {
   return (
     <TemperatureContainer>
       <StyledLocationButton />
-      <LocationText>노원구 공릉동</LocationText>
+      <LocationText>공릉동</LocationText>
       <TemperatureText>오늘의 기온은 어제와 비슷해요</TemperatureText>
       <TemperatureValue>13°C</TemperatureValue>
       <TemperatureRange>

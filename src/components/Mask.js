@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const MaskContainer = styled.div`
   position: absolute;
-  top: 0px;
-  left: 49px;
+  top: -35px;
+  left: 59px;
   width: 100%;
 `;
 

@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import '../fonts/fonts.css';
 
 const RainContainer = styled.div`
   position: absolute;
-  top: 0px;
-  left: 49px;
+  top: -35px;
+  left: 59px;
   width: 100%;
 `;
 
@@ -29,6 +30,7 @@ const RainValue = styled.p`
   font-weight: 300;
   line-height: 120%; /* 48px */
   letter-spacing: 0.4px;
+  font-family:'Inter';
 `;
 
 const RainMessage = styled.small`
