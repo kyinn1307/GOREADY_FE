@@ -59,7 +59,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 393px;
+  width: 100vw;
 `;
 
 const StyledLocationButton = styled(LocationButton)`
