@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { ReactComponent as MapImage } from "../assets/images/mapImage.svg";
 import { ReactComponent as LocationButton } from "../assets/images/locationButton.svg";
+import { ReactComponent as GoReadyLogo } from "../assets/images/goReadyLogo.svg";
 import { TextBox } from "../components/common/TextBox";
 import { Button } from "../components/common/Button";
 import { useGeoLocation } from "../hooks/useGeoLocation";
 import { useEffect } from "react";
+import { useLocationInfo } from "../context/GeoInfoContext";
 
 const geolocationOptions = {
   enableHighAccuracy: true,
@@ -14,12 +16,13 @@ const geolocationOptions = {
 
 export const LocationPermissionPage = () => {
   const { location, error, getLocation } = useGeoLocation(geolocationOptions);
-
+  const { geoLocation, updateLocation } = useLocationInfo();
   useEffect(() => {
-    if (location) {
-      console.log({ location });
-    }
-    if (error) {
+    if (location && location.latitude != null && location.longitude != null) {
+      console.log(location);
+      updateLocation(location.latitude, location.longitude);
+      console.log("위도 경도", geoLocation);
+    } else if (error) {
       console.log("Error:", error);
     }
   }, [location, error]);
@@ -27,6 +30,7 @@ export const LocationPermissionPage = () => {
   return (
     <Container>
       <StyledLocationButton />
+      <StyledLogo />
       <StyledMapImage />
       <TextContainer>
         <TextBox
@@ -62,6 +66,11 @@ const Container = styled.div`
   width: 393px;
 `;
 
+const StyledLogo = styled(GoReadyLogo)`
+  position: relative;
+  margin-top: 53px;
+`;
+
 const StyledLocationButton = styled(LocationButton)`
   position: absolute;
   left: 322px;
@@ -71,7 +80,7 @@ const StyledLocationButton = styled(LocationButton)`
 
 const StyledMapImage = styled(MapImage)`
   position: relative;
-  margin-top: 117px;
+  margin-top: 14px;
 `;
 
 const TextContainer = styled.div`

@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import { LocationPermissionPage } from "./pages/LocationPermissionPage";
-import { useEffect } from "react";
 import GoreadyInfoPage from "./pages/GoreadyInfoPage";
 
 function App() {
