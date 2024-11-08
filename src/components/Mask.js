@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 const MaskContainer = styled.div`
   position: absolute;
-  top: -35px;
-  left: 59px;
+  top: 0px;
+  left: 49px;
   width: 100%;
 `;
 
 const MaskText = styled.h3`
   position: absolute;
-  top: 310px;
+  top: 330px;
   left: 0;
   color: #f40;
   font-family: Pretendard;
@@ -22,7 +22,7 @@ const MaskText = styled.h3`
 
 const MaskAlarm = styled.h3`
   position: absolute;
-  top: 370px;
+  top: 382px;
   left: 0;
   border-radius: 18px;
   border: 1px solid #f40;
@@ -37,6 +37,8 @@ const MaskAlarm = styled.h3`
   line-height: 1.2; /* 15.6px */
   letter-spacing: 0.13px;
   cursor: pointer;
+
+  /* 중앙에 텍스트 정렬 */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,7 +46,7 @@ const MaskAlarm = styled.h3`
 
 const MaskIcon = styled.img`
   position: absolute;
-  top: 385px; 
+  top: 383px; /* 위치값 수정.. 해야함 */
   left: 193px;
   width: 114px;
   height: 114px;
