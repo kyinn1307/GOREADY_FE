@@ -5,19 +5,17 @@ import Mask from "../components/Mask";
 import RainProbability from "../components/RainProbability";
 
 const MainPageContainer = styled.div`
-  display: flex;
   position: relative;
-  justify-content:center;
   width: 393px;
+  height: 852px;
   background-color: #fafafa;
 `;
 
 const Divider = styled.div`
   position: absolute;
-  justify-content:center;
   top: ${(props) => props.top}px;
   left: 11px;
-  width: 100%;
+  width: 369px;
   height: 1px;
   background-color: #ebedf0;
 `;
@@ -28,8 +26,8 @@ const GoreadyInfoPage = () => {
       <Temperature />
       <Mask />
       <RainProbability />
-      <Divider top={270} />
-      <Divider top={489} />
+      <Divider top={305} />
+      <Divider top={524} />
     </MainPageContainer>
   );
 };

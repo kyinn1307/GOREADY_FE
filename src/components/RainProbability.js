@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import '../fonts/fonts.css';
 
 const RainContainer = styled.div`
   position: absolute;
-  top: -35px;
-  left: 59px;
+  top: 0px;
+  left: 49px;
   width: 100%;
 `;
 
@@ -14,6 +13,7 @@ const RainText = styled.h3`
   top: 550px;
   left: 0;
   color: #000;
+  font-family: Pretendard;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -22,15 +22,15 @@ const RainText = styled.h3`
 
 const RainValue = styled.p`
   position: absolute;
-  top: 524px;
+  top: 561px;
   left: 210px;
   color: var(--WF-Base-800, #2d3648);
+  font-family: Inter;
   font-size: 40px;
   font-style: normal;
   font-weight: 300;
   line-height: 120%; /* 48px */
   letter-spacing: 0.4px;
-  font-family:'Inter';
 `;
 
 const RainMessage = styled.small`
@@ -38,6 +38,7 @@ const RainMessage = styled.small`
   top: 615px;
   left: 0;
   color: #f40;
+  font-family: Pretendard;
   font-size: 25px;
   font-style: normal;
   font-weight: 400;
