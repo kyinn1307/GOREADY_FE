@@ -17,7 +17,7 @@ const Divider = styled.div`
   position: absolute;
   top: ${(props) => props.top}px;
   left: 11px;
-  width: 369px;
+  width: 100%;
   height: 1px;
   background-color: #ebedf0;
 `;
