@@ -37,8 +37,8 @@ const GoreadyInfoPage = () => {
       <Temperature />
       <Mask />
       <RainProbability />
-      <Divider top={305} />
-      <Divider top={524} />
+      <Divider top={251} />
+      <Divider top={470} />
     </MainPageContainer>
   );
 };

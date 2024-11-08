@@ -10,7 +10,7 @@ const MaskContainer = styled.div`
 
 const MaskText = styled.h3`
   position: absolute;
-  top: 310px;
+  top: 256px;
   left: 0;
   color: #f40;
   font-family: Pretendard;
@@ -22,7 +22,7 @@ const MaskText = styled.h3`
 
 const MaskAlarm = styled.h3`
   position: absolute;
-  top: 370px;
+  top: 316px;
   left: 0;
   border-radius: 18px;
   border: 1px solid #f40;
@@ -44,7 +44,7 @@ const MaskAlarm = styled.h3`
 
 const MaskIcon = styled.img`
   position: absolute;
-  top: 385px; 
+  top: 331px; 
   left: 193px;
   width: 114px;
   height: 114px;

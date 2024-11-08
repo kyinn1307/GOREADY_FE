@@ -10,7 +10,7 @@ const RainContainer = styled.div`
 
 const RainText = styled.h3`
   position: absolute;
-  top: 550px;
+  top: 496px;
   left: 0;
   color: #000;
   font-size: 25px;
@@ -21,7 +21,7 @@ const RainText = styled.h3`
 
 const RainValue = styled.p`
   position: absolute;
-  top: 524px;
+  top: 470px;
   left: 210px;
   color: var(--WF-Base-800, #2d3648);
   font-size: 40px;
@@ -33,7 +33,7 @@ const RainValue = styled.p`
 
 const RainMessage = styled.small`
   position: absolute;
-  top: 615px;
+  top: 561px;
   left: 0;
   color: #f40;
   font-size: 25px;
@@ -44,7 +44,7 @@ const RainMessage = styled.small`
 
 const RainIcon = styled.img`
   position: absolute;
-  top: 657px;
+  top: 603px;
   left: 193px;
   width: 100px;
   height: 98px;
