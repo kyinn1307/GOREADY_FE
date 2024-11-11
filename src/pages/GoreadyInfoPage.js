@@ -19,7 +19,7 @@ const Divider = styled.div`
   position: absolute;
   top: ${(props) => props.top}px;
   left: 11px;
-  width: 369px;
+  width: 100%;
   height: 1px;
   background-color: #ebedf0;
 `;
@@ -70,10 +70,7 @@ const GoreadyInfoPage = () => {
       <StyledLogo />
       <Temperature weatherInfo={weatherInfo} currLocation={currLocation} />
       <Mask />
-      <RainProbability
-        rainPer={weatherInfo.rainPer}
-        isUmbrella={weatherInfo.isUmbrella}
-      />
+      <RainProbability />
       <Divider top={305} />
       <Divider top={524} />
     </MainPageContainer>

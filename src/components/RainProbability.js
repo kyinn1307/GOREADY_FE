@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const RainContainer = styled.div`
@@ -10,7 +10,7 @@ const RainContainer = styled.div`
 
 const RainText = styled.h3`
   position: absolute;
-  top: 550px;
+  top: 496px;
   left: 0;
   color: #000;
   font-size: 25px;
@@ -21,7 +21,7 @@ const RainText = styled.h3`
 
 const RainValue = styled.p`
   position: absolute;
-  top: 524px;
+  top: 470px;
   left: 210px;
   color: var(--WF-Base-800, #2d3648);
   font-size: 40px;
@@ -33,9 +33,9 @@ const RainValue = styled.p`
 
 const RainMessage = styled.small`
   position: absolute;
-  top: 615px;
+  top: 561px;
   left: 0;
-  color: #f40;
+  color: ${(props) => (props.isUmbrella ? "#f40" : "#007AFF")};
   font-size: 25px;
   font-style: normal;
   font-weight: 400;
@@ -44,7 +44,15 @@ const RainMessage = styled.small`
 
 const RainIcon = styled.img`
   position: absolute;
-  top: 657px;
+  top: 603px;
+  left: 193px;
+  width: 100px;
+  height: 98px;
+  flex-shrink: 0;
+`;
+const XRainIcon= styled.img`
+  position: absolute;
+  top: 603px;
   left: 193px;
   width: 100px;
   height: 98px;
@@ -52,15 +60,39 @@ const RainIcon = styled.img`
 `;
 
 const RainProbability = () => {
+
+  const [data, setData] = useState();
+
+  const response = {
+    status: 200,
+    message: "날씨 조회 성공입니다.",
+    data: {
+      status: "hot",
+      isUmbrella: false,
+      hightemp: 25,
+      lowtemp: 13,
+      difftemp: 2,
+      currenttemp: 22,
+      rainper: 70,
+    },
+  };
+
+  useEffect(() => {
+    setData(response.data);
+  }, []);
+
   return (
     <RainContainer>
       <RainText>강수확률</RainText>
-      <RainValue>80%</RainValue>
-      <RainMessage>우산을 챙기세요</RainMessage>
-      <RainIcon
-        src={require("../assets/images/umbrella.png")}
-        alt="Umbrella icon"
-      />
+      <RainValue>{data?.rainper}%</RainValue>
+      <RainMessage isUmbrella={data?.isUmbrella}>
+        {data?.isUmbrella ? "우산을 챙기세요" : "우산은 괜찮아요"}
+      </RainMessage>
+      {data?.isUmbrella ? (
+        <RainIcon src={require("../assets/images/umbrella.png")} alt="Umbrella icon" />
+      ) : (
+        <XRainIcon src={require("../assets/images/noumbrella.png")} alt="No Umbrella icon" />
+      )}
     </RainContainer>
   );
 };
