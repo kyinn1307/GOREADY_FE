@@ -35,9 +35,10 @@ const StyledLogo = styled(GoReadyLogo)`
 const GoreadyInfoPage = () => {
   const { geoLocation, updateLocation } = useLocationInfo();
   const [weatherInfo, setWeatherInfo] = useState();
-  const [currLocation, setCurrLocation] = useState("공릉동");
+  const [maskInfo, setMaskInfo] = useState();
+  const [currLocation, setCurrLocation] = useState("");
 
-  const fetchData = async () => {
+  const fetchWeatherData = async () => {
     if (geoLocation.latitude != null && geoLocation.longitude != null) {
       try {
         const response = await axiosInstance.get(
@@ -51,6 +52,21 @@ const GoreadyInfoPage = () => {
     }
   };
 
+  const fetchMaskData = async () => {
+    if (geoLocation.latitude != null && geoLocation.longitude != null) {
+      try {
+        const response = await axiosInstance.get(
+          `/api/mask?lat=${geoLocation.latitude}&lon=${geoLocation.longitude}`
+        );
+        setMaskInfo(response.data.data);
+        console.log("마스크 정보", maskInfo);
+        setCurrLocation(maskInfo.address);
+      } catch (error) {
+        console.error("Failed to fetch mask data:", error);
+      }
+    }
+  };
+
   useEffect(() => {
     const storedLatitude = localStorage.getItem("latitude");
     const storedLongitude = localStorage.getItem("longitude");
@@ -60,7 +76,8 @@ const GoreadyInfoPage = () => {
   }, []);
 
   useEffect(() => {
-    fetchData();
+    fetchWeatherData();
+    fetchMaskData();
   }, [geoLocation]);
 
   if (!weatherInfo) return null;
@@ -69,10 +86,13 @@ const GoreadyInfoPage = () => {
     <MainPageContainer>
       <StyledLogo />
       <Temperature weatherInfo={weatherInfo} currLocation={currLocation} />
-      <Mask />
-      <RainProbability />
-      <Divider top={305} />
-      <Divider top={524} />
+      <Mask alert={maskInfo.alert} isMask={maskInfo.isMask} />
+      <RainProbability
+        rainPer={weatherInfo.rainPer}
+        isUmbrella={weatherInfo.isUmbrella}
+      />
+      <Divider top={251} />
+      <Divider top={470} />
     </MainPageContainer>
   );
 };

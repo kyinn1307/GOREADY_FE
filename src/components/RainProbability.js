@@ -50,7 +50,7 @@ const RainIcon = styled.img`
   height: 98px;
   flex-shrink: 0;
 `;
-const XRainIcon= styled.img`
+const XRainIcon = styled.img`
   position: absolute;
   top: 603px;
   left: 193px;
@@ -59,39 +59,24 @@ const XRainIcon= styled.img`
   flex-shrink: 0;
 `;
 
-const RainProbability = () => {
-
-  const [data, setData] = useState();
-
-  const response = {
-    status: 200,
-    message: "날씨 조회 성공입니다.",
-    data: {
-      status: "hot",
-      isUmbrella: false,
-      hightemp: 25,
-      lowtemp: 13,
-      difftemp: 2,
-      currenttemp: 22,
-      rainper: 70,
-    },
-  };
-
-  useEffect(() => {
-    setData(response.data);
-  }, []);
-
+const RainProbability = ({ rainPer, isUmbrella }) => {
   return (
     <RainContainer>
       <RainText>강수확률</RainText>
-      <RainValue>{data?.rainper}%</RainValue>
-      <RainMessage isUmbrella={data?.isUmbrella}>
-        {data?.isUmbrella ? "우산을 챙기세요" : "우산은 괜찮아요"}
+      <RainValue>{rainPer}%</RainValue>
+      <RainMessage isUmbrella={isUmbrella}>
+        {isUmbrella ? "우산을 챙기세요" : "우산은 괜찮아요"}
       </RainMessage>
-      {data?.isUmbrella ? (
-        <RainIcon src={require("../assets/images/umbrella.png")} alt="Umbrella icon" />
+      {!isUmbrella ? (
+        <RainIcon
+          src={require("../assets/images/umbrella.png")}
+          alt="Umbrella icon"
+        />
       ) : (
-        <XRainIcon src={require("../assets/images/noumbrella.png")} alt="No Umbrella icon" />
+        <XRainIcon
+          src={require("../assets/images/noumbrella.png")}
+          alt="No Umbrella icon"
+        />
       )}
     </RainContainer>
   );

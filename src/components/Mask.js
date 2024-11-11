@@ -68,30 +68,14 @@ const NoMaskIcon = styled.img`
   flex-shrink: 0;
 `;
 
-const Mask = () => {
-  const [data, setData] = useState();
-
-  const response = {
-    status: 200,
-    message: "미세먼지 조회 성공입니다.",
-    data: {
-      alert: true,
-      isMask: true,
-      address: "공릉동",
-    },
-  };
-
-  useEffect(() => {
-    setData(response.data);
-  }, []);
-
+const Mask = ({ alert, isMask }) => {
   return (
     <MaskContainer>
-      <MaskText isMask={data?.isMask}>
-        {data?.isMask ? "마스크를 꼭 착용하세요" : "마스크는 필요없어요"}
+      <MaskText isMask={isMask}>
+        {isMask ? "마스크를 꼭 착용하세요" : "마스크는 필요없어요"}
       </MaskText>
-      {data?.alert && <MaskAlarm>미세먼지 경보</MaskAlarm>}
-      {data?.isMask ? (
+      {alert && <MaskAlarm>미세먼지 경보</MaskAlarm>}
+      {isMask ? (
         <>
           <MaskIcon
             src={require("../assets/images/mask.png")}
