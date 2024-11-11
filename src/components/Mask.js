@@ -44,7 +44,7 @@ const MaskAlarm = styled.h3`
 
 const MaskIcon = styled.img`
   position: absolute;
-  top: 385px; 
+  top: 385px;
   left: 193px;
   width: 114px;
   height: 114px;

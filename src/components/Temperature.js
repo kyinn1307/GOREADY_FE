@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as LocationButton } from "../assets/images/locationButton.svg";
+import { axiosInstance } from "../apis/axiosInstance";
 
 const TemperatureContainer = styled.div`
   position: absolute;
@@ -36,6 +37,10 @@ const TemperatureText = styled.h3`
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
+
+  .colored {
+    color: ${({ changeColor }) => changeColor || "#000"};
+  }
 `;
 
 const TemperatureValue = styled.p`
@@ -77,49 +82,43 @@ const TemperatureRange = styled.div`
   }
   .change {
     margin-left: 5px;
-    color: #ff4500;
+    color: ${({ changeColor }) => changeColor || "#000"};
     font-size: 13px;
   }
 `;
 
-const Temperature = () => {
-  const [data, setData] = useState();
+const Temperature = ({ weatherInfo, currLocation }) => {
+  const arrowDirection = weatherInfo?.status === "hot" ? "↑" : "↓";
+  const tempDiffTxt =
+    weatherInfo?.status === "hot" ? (
+      <span>
+        오늘의 기온은 어제보다 <span className="colored">높아요</span>
+      </span>
+    ) : weatherInfo?.status === "cold" ? (
+      "오늘의 기온은 어제보다 낮아요"
+    ) : (
+      "오늘의 기온은 어제와 같아요"
+    );
 
-  // Mocked response
-  const response = {
-    status: 200,
-    message: "날씨 조회 성공입니다.",
-    data: {
-      status: "hot",
-      isUmbrella: true,
-      hightemp: 25,
-      lowtemp: 13,
-      difftemp: 2,
-      currenttemp: 22,
-      rainper: 70,
-      location: "서울시 노원구",
-    },
-  };
-
-  useEffect(() => {
-    setData(response.data);
-  }, []);
-
-  // 화살표 방향 결정
-  const arrowDirection = data?.status === "hot" ? "↑" : "↓";
+  const changeColor =
+    weatherInfo?.status === "hot"
+      ? "#ff4500"
+      : weatherInfo?.status === "cold"
+      ? "#007aff"
+      : "#000";
 
   return (
     <TemperatureContainer>
       <StyledLocationButton />
-      <LocationText>{data?.location}</LocationText>
-      <TemperatureText>오늘의 기온은 어제와 비슷해요</TemperatureText>
-      <TemperatureValue>{data?.currenttemp}°C</TemperatureValue>
-      <TemperatureRange>
-        <span className="low">{data?.lowtemp}°C</span>
+      <LocationText>{currLocation}</LocationText>
+      <TemperatureText changeColor={changeColor}>{tempDiffTxt}</TemperatureText>
+      <TemperatureValue>{weatherInfo?.currentTemp}°C</TemperatureValue>
+      <TemperatureRange changeColor={changeColor}>
+        <span className="low">{weatherInfo?.lowTemp}°C</span>
         <span>–</span>
-        <span className="high">{data?.hightemp}°C</span>
+        <span className="high">{weatherInfo?.highTemp}°C</span>
         <span className="arrow">{arrowDirection}</span>
-        <span className="change">{data?.difftemp}°C</span>
+        <span className="change">{weatherInfo?.diffTemp}°C</span>
       </TemperatureRange>
     </TemperatureContainer>
   );
