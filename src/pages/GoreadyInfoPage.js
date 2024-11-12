@@ -6,6 +6,7 @@ import Mask from "../components/Mask";
 import RainProbability from "../components/RainProbability";
 import { useLocationInfo } from "../context/GeoInfoContext";
 import { axiosInstance } from "../apis/axiosInstance";
+import { SyncLoader } from "react-spinners";
 
 const MainPageContainer = styled.div`
   display: flex;
@@ -30,6 +31,14 @@ const StyledLogo = styled(GoReadyLogo)`
   left: 264px;
   width: 70.2px;
   height: 30px;
+`;
+
+const Loading = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
 `;
 
 const GoreadyInfoPage = () => {
@@ -78,7 +87,13 @@ const GoreadyInfoPage = () => {
     fetchMaskData();
   }, [geoLocation]);
 
-  if (!weatherInfo || !maskInfo) return <div>Loading...</div>;
+  if (!weatherInfo || !maskInfo)
+    return (
+      <Loading>
+        Loading...
+        <SyncLoader />
+      </Loading>
+    );
 
   return (
     <MainPageContainer>
