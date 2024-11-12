@@ -88,7 +88,13 @@ const TemperatureRange = styled.div`
 `;
 
 const Temperature = ({ weatherInfo, currLocation }) => {
-  const arrowDirection = weatherInfo?.status === "hot" ? "↑" : "↓";
+  const arrowDirection =
+    weatherInfo?.status === "hot"
+      ? "↑"
+      : weatherInfo?.status === "cold"
+      ? "↓"
+      : "";
+
   const tempDiffTxt =
     weatherInfo?.status === "hot" ? (
       <span>
@@ -99,7 +105,7 @@ const Temperature = ({ weatherInfo, currLocation }) => {
         오늘의 기온은 어제보다 <span className="colored">낮아요</span>
       </span>
     ) : (
-      "오늘의 기온은 어제와 같아요"
+      "오늘의 기온은 어제와 비슷해요"
     );
 
   const changeColor =
