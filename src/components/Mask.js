@@ -37,6 +37,8 @@ const MaskAlarm = styled.h3`
   line-height: 1.2;
   letter-spacing: 0.13px;
   cursor: pointer;
+
+  /* 중앙에 텍스트 정렬 */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,6 +61,7 @@ const IsMaskIcon = styled.img`
   height: 50px;
   flex-shrink: 0;
 `;
+
 const NoMaskIcon = styled.img`
   position: absolute;
   top: 331px;

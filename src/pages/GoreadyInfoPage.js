@@ -9,10 +9,10 @@ import { axiosInstance } from "../apis/axiosInstance";
 import { SyncLoader } from "react-spinners";
 
 const MainPageContainer = styled.div`
-  display: flex;
   position: relative;
   justify-content: center;
   width: 393px;
+  height: 852px;
   background-color: #fafafa;
 `;
 
