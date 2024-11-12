@@ -95,7 +95,9 @@ const Temperature = ({ weatherInfo, currLocation }) => {
         오늘의 기온은 어제보다 <span className="colored">높아요</span>
       </span>
     ) : weatherInfo?.status === "cold" ? (
-      "오늘의 기온은 어제보다 낮아요"
+      <span>
+        오늘의 기온은 어제보다 <span className="colored">낮아요</span>
+      </span>
     ) : (
       "오늘의 기온은 어제와 같아요"
     );
