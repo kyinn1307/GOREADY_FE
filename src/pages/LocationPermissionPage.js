@@ -7,6 +7,7 @@ import { Button } from "../components/common/Button";
 import { useGeoLocation } from "../hooks/useGeoLocation";
 import { useEffect } from "react";
 import { useLocationInfo } from "../context/GeoInfoContext";
+import { useNavigate } from "react-router-dom";
 
 const geolocationOptions = {
   enableHighAccuracy: true,
@@ -17,11 +18,14 @@ const geolocationOptions = {
 export const LocationPermissionPage = () => {
   const { location, error, getLocation } = useGeoLocation(geolocationOptions);
   const { geoLocation, updateLocation } = useLocationInfo();
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (location && location.latitude != null && location.longitude != null) {
       console.log(location);
       updateLocation(location.latitude, location.longitude);
       console.log("위도 경도", geoLocation);
+      navigate("/info");
     } else if (error) {
       console.log("Error:", error);
     }
@@ -41,10 +45,10 @@ export const LocationPermissionPage = () => {
           height={39}
         />
         <TextBox
-          text={"외출준비는 사용자의 위치가\n필요해요!"}
+          text={"Go Ready는 사용자의 위치가 필요해요!"}
           fontSize={25}
           fontWeight={600}
-          width={275}
+          width={309}
           height={52}
         />
       </TextContainer>

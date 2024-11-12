@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = ({ onClick, left, top, text, backgroundColor }) => {
+export const Button = ({ onClick, text, backgroundColor }) => {
   return (
     <ButtonBox onClick={onClick} backgroundColor={backgroundColor}>
       <ButtonText>{text}</ButtonText>

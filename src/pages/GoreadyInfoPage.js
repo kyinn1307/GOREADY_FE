@@ -34,9 +34,8 @@ const StyledLogo = styled(GoReadyLogo)`
 
 const GoreadyInfoPage = () => {
   const { geoLocation, updateLocation } = useLocationInfo();
-  const [weatherInfo, setWeatherInfo] = useState();
-  const [maskInfo, setMaskInfo] = useState();
-  const [currLocation, setCurrLocation] = useState("");
+  const [weatherInfo, setWeatherInfo] = useState("");
+  const [maskInfo, setMaskInfo] = useState("");
 
   const fetchWeatherData = async () => {
     if (geoLocation.latitude != null && geoLocation.longitude != null) {
@@ -60,7 +59,6 @@ const GoreadyInfoPage = () => {
         );
         setMaskInfo(response.data.data);
         console.log("마스크 정보", maskInfo);
-        setCurrLocation(maskInfo.address);
       } catch (error) {
         console.error("Failed to fetch mask data:", error);
       }
@@ -80,12 +78,12 @@ const GoreadyInfoPage = () => {
     fetchMaskData();
   }, [geoLocation]);
 
-  if (!weatherInfo) return null;
+  if (!weatherInfo || !maskInfo) return <div>Loading...</div>;
 
   return (
     <MainPageContainer>
       <StyledLogo />
-      <Temperature weatherInfo={weatherInfo} currLocation={currLocation} />
+      <Temperature weatherInfo={weatherInfo} currLocation={maskInfo.address} />
       <Mask alert={maskInfo.alert} isMask={maskInfo.isMask} />
       <RainProbability
         rainPer={weatherInfo.rainPer}
