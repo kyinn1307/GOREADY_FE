@@ -5,8 +5,10 @@ import { ReactComponent as GoReadyLogo } from "../assets/images/goReadyLogo.svg"
 import { TextBox } from "../components/common/TextBox";
 import { Button } from "../components/common/Button";
 import { useGeoLocation } from "../hooks/useGeoLocation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocationInfo } from "../context/GeoInfoContext";
+import { useNavigate } from "react-router-dom";
+import { SyncLoader } from "react-spinners";
 
 const geolocationOptions = {
   enableHighAccuracy: true,
@@ -17,45 +19,73 @@ const geolocationOptions = {
 export const LocationPermissionPage = () => {
   const { location, error, getLocation } = useGeoLocation(geolocationOptions);
   const { geoLocation, updateLocation } = useLocationInfo();
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (location && location.latitude != null && location.longitude != null) {
-      console.log(location);
       updateLocation(location.latitude, location.longitude);
       console.log("위도 경도", geoLocation);
+      setIsLoading(false);
+      navigate("/info");
     } else if (error) {
       console.log("Error:", error);
+      setIsLoading(false);
     }
   }, [location, error]);
 
+  const handleGetLocation = () => {
+    setIsLoading(true);
+    getLocation();
+  };
+
   return (
     <Container>
-      <StyledLocationButton />
-      <StyledLogo />
-      <StyledMapImage />
-      <TextContainer>
-        <TextBox
-          text="반가워요 ,"
-          fontSize={18}
-          fontWeight={400}
-          width={84}
-          height={39}
-        />
-        <TextBox
-          text={"외출준비는 사용자의 위치가\n필요해요!"}
-          fontSize={25}
-          fontWeight={600}
-          width={275}
-          height={52}
-        />
-      </TextContainer>
-      <Button
-        text="위치 권한 허용하기"
-        backgroundColor={"#000000"}
-        onClick={getLocation}
-      />
+      {isLoading ? (
+        <Loading>
+          위치정보를 받아오는 중입니다...
+          <SyncLoader />
+        </Loading>
+      ) : (
+        <>
+          <StyledLocationButton />
+          <StyledLogo />
+          <StyledMapImage />
+          <TextContainer>
+            <TextBox
+              text="반가워요 ,"
+              fontSize={18}
+              fontWeight={400}
+              width={84}
+              height={39}
+            />
+            <TextBox
+              text={"Go Ready는 사용자의 위치가 필요해요!"}
+              fontSize={25}
+              fontWeight={600}
+              width={309}
+              height={52}
+            />
+          </TextContainer>
+          <Button
+            text="위치 권한 허용하기"
+            backgroundColor={"#000000"}
+            onClick={handleGetLocation}
+          />
+        </>
+      )}
     </Container>
   );
 };
+
+const Loading = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+`;
 
 const Container = styled.div`
   display: flex;

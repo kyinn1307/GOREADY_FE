@@ -6,6 +6,7 @@ import Mask from "../components/Mask";
 import RainProbability from "../components/RainProbability";
 import { useLocationInfo } from "../context/GeoInfoContext";
 import { axiosInstance } from "../apis/axiosInstance";
+import { SyncLoader } from "react-spinners";
 
 const MainPageContainer = styled.div`
   display: flex;
@@ -32,11 +33,18 @@ const StyledLogo = styled(GoReadyLogo)`
   height: 30px;
 `;
 
+const Loading = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+`;
+
 const GoreadyInfoPage = () => {
   const { geoLocation, updateLocation } = useLocationInfo();
-  const [weatherInfo, setWeatherInfo] = useState();
-  const [maskInfo, setMaskInfo] = useState();
-  const [currLocation, setCurrLocation] = useState("");
+  const [weatherInfo, setWeatherInfo] = useState("");
+  const [maskInfo, setMaskInfo] = useState("");
 
   const fetchWeatherData = async () => {
     if (geoLocation.latitude != null && geoLocation.longitude != null) {
@@ -60,7 +68,6 @@ const GoreadyInfoPage = () => {
         );
         setMaskInfo(response.data.data);
         console.log("마스크 정보", maskInfo);
-        setCurrLocation(maskInfo.address);
       } catch (error) {
         console.error("Failed to fetch mask data:", error);
       }
@@ -80,12 +87,18 @@ const GoreadyInfoPage = () => {
     fetchMaskData();
   }, [geoLocation]);
 
-  if (!weatherInfo) return null;
+  if (!weatherInfo || !maskInfo)
+    return (
+      <Loading>
+        Loading...
+        <SyncLoader />
+      </Loading>
+    );
 
   return (
     <MainPageContainer>
       <StyledLogo />
-      <Temperature weatherInfo={weatherInfo} currLocation={currLocation} />
+      <Temperature weatherInfo={weatherInfo} currLocation={maskInfo.address} />
       <Mask alert={maskInfo.alert} isMask={maskInfo.isMask} />
       <RainProbability
         rainPer={weatherInfo.rainPer}
