@@ -67,7 +67,7 @@ const RainProbability = ({ rainPer, isUmbrella }) => {
       <RainMessage isUmbrella={isUmbrella}>
         {isUmbrella ? "우산을 챙기세요" : "우산은 괜찮아요"}
       </RainMessage>
-      {!isUmbrella ? (
+      {isUmbrella ? (
         <RainIcon
           src={require("../assets/images/umbrella.png")}
           alt="Umbrella icon"
