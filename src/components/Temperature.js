@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as LocationButton } from "../assets/images/locationButton.svg";
-import { axiosInstance } from "../apis/axiosInstance";
-
+import { useLocationInfo } from "../context/GeoInfoContext";
 const TemperatureContainer = styled.div`
   position: absolute;
   top: 0px;
@@ -16,6 +15,7 @@ const StyledLocationButton = styled(LocationButton)`
   top: 45px;
   width: 23px;
   height: 20px;
+  cursor: pointer;
 `;
 
 const LocationText = styled.span`
@@ -88,6 +88,8 @@ const TemperatureRange = styled.div`
 `;
 
 const Temperature = ({ weatherInfo, currLocation }) => {
+  const { geoLocation, updateLocation } = useLocationInfo();
+
   const arrowDirection =
     weatherInfo?.status === "hot"
       ? "↑"
@@ -105,7 +107,7 @@ const Temperature = ({ weatherInfo, currLocation }) => {
         오늘의 기온은 어제보다 <span className="colored">낮아요</span>
       </span>
     ) : (
-      "오늘의 기온은 어제와 비슷해요"
+      "오늘의 기온은 어제와 같아요"
     );
 
   const changeColor =
@@ -115,9 +117,28 @@ const Temperature = ({ weatherInfo, currLocation }) => {
       ? "#007aff"
       : "#000";
 
+  const weatherDiff =
+    weatherInfo?.status === "same" ? "" : `${weatherInfo?.diffTemp}°C`;
+
+  const handleLocationUpdate = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          updateLocation(latitude, longitude);
+        },
+        (error) => {
+          console.error("Error fetching location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  };
+
   return (
     <TemperatureContainer>
-      <StyledLocationButton />
+      <StyledLocationButton onClick={handleLocationUpdate} />
       <LocationText>{currLocation}</LocationText>
       <TemperatureText changeColor={changeColor}>{tempDiffTxt}</TemperatureText>
       <TemperatureValue>{weatherInfo?.currentTemp}°C</TemperatureValue>
@@ -126,7 +147,7 @@ const Temperature = ({ weatherInfo, currLocation }) => {
         <span>–</span>
         <span className="high">{weatherInfo?.highTemp}°C</span>
         <span className="arrow">{arrowDirection}</span>
-        <span className="change">{weatherInfo?.diffTemp}°C</span>
+        <span className="change">{weatherDiff}</span>
       </TemperatureRange>
     </TemperatureContainer>
   );
