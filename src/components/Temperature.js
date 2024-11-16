@@ -38,7 +38,7 @@ const LocationText = styled.div`
   margin-left: 7px;
   color: #000;
   font-size: 15px;
-  font-style: Pretendard;
+  font-family: "Pretendard";
   font-weight: 400;
   line-height: 0px;
 `;
@@ -49,7 +49,7 @@ const TemperatureText = styled.div`
   text-align: center;
   color: #000;
   font-size: 25px;
-  font-style: Inter;
+  font-family: "Pretendard";
   font-weight: 600;
   width: 100%;
 
@@ -70,7 +70,7 @@ const TemperatureValue = styled.div`
   margin-left: 58px;
   color: var(--WF-Base-800, #2d3648);
   font-size: 40px;
-  font-style: Inter;
+  font-family: "Inter";
   font-weight: 300;
   line-height: 120%;
   letter-spacing: 0.4px;
@@ -78,7 +78,7 @@ const TemperatureValue = styled.div`
 
 const TemperatureRange = styled.div`
   position: relative;
-  font-style: Inter;
+  font-family: "Inter";
 
   span {
     margin-right: 5px;

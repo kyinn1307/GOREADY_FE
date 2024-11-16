@@ -19,5 +19,5 @@ const TextLabel = styled.div`
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
   white-space: pre-line;
-  font: "Inter";
+  font-family: "Pretendard";
 `;

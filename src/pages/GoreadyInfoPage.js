@@ -38,6 +38,7 @@ const Loading = styled.div`
   display: flex;
   flex-direction: column;
   top: 50%;
+  font-family: "Pretendard";
 `;
 
 const GoreadyInfoPage = () => {

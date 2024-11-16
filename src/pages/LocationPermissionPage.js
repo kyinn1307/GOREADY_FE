@@ -83,7 +83,7 @@ const Loading = styled.div`
   align-items: center;
   flex-direction: column;
   height: 100vh;
-  font-style: Pretendard;
+  font-family: "Pretendard";
 `;
 
 const Container = styled.div`
@@ -93,7 +93,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 393px;
-  font-style: Pretendard;
 `;
 
 const StyledLogo = styled(GoReadyLogo)`
@@ -119,4 +118,5 @@ const TextContainer = styled.div`
   flex-direction: column;
   margin-top: 81px;
   gap: 10px;
+  font-family: "Pretendard";
 `;
