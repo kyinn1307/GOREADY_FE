@@ -32,7 +32,7 @@ const LocationText = styled.span`
 
 const TemperatureText = styled.h3`
   position: absolute;
-  top: 97px;
+  top: 64px;
   left: 0;
   color: #000;
   font-family: Pretendard;
@@ -47,10 +47,10 @@ const TemperatureText = styled.h3`
 
 const TemperatureValue = styled.p`
   position: absolute;
-  top: 154px;
+  top: 124px;
   left: 202px;
   color: var(--WF-Base-800, #2d3648);
-  font-family: Inter;
+  font-family: Pretendard;
   font-size: 40px;
   font-style: normal;
   font-weight: 300;
@@ -62,7 +62,7 @@ const TemperatureRange = styled.div`
   position: absolute;
   top: 173px;
   left: 0;
-  font-family: Inter;
+  font-family: Pretendard;
   font-style: normal;
 
   span {

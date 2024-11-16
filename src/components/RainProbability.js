@@ -25,7 +25,7 @@ const RainValue = styled.p`
   top: 470px;
   left: 210px;
   color: var(--WF-Base-800, #2d3648);
-  font-family: Inter;
+  font-family: Pretendard;
   font-size: 40px;
   font-style: normal;
   font-weight: 300;
