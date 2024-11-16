@@ -46,11 +46,13 @@ const GoreadyInfoPage = () => {
   const { geoLocation, updateLocation } = useLocationInfo();
   const [weatherInfo, setWeatherInfo] = useState("");
   const [maskInfo, setMaskInfo] = useState("");
+  const [isLocationLoaded, setIsLocationLoaded] = useState(false);
   const { location, getLocation } = useGeoLocation();
 
   useEffect(() => {
     if (location && location.latitude && location.longitude) {
       updateLocation(location.latitude, location.longitude);
+      setIsLocationLoaded(true);
     }
   }, [location]);
 
@@ -94,11 +96,13 @@ const GoreadyInfoPage = () => {
   };
 
   useEffect(() => {
-    fetchWeatherData();
-    fetchMaskData();
+    if (isLocationLoaded) {
+      fetchWeatherData();
+      fetchMaskData();
+    }
   }, [geoLocation]);
 
-  if (!weatherInfo || !maskInfo)
+  if (!isLocationLoaded || !weatherInfo || !maskInfo)
     return (
       <Loading>
         Loading...
