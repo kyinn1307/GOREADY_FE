@@ -18,5 +18,6 @@ const TextLabel = styled.div`
   font-weight: ${(props) => props.fontWeight};
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
-  white-space: pre-line; /* 줄바꿈 적용 */
+  white-space: pre-line;
+  font: "Inter";
 `;

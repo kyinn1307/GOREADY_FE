@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = ({ onClick, left, top, text, backgroundColor }) => {
+export const Button = ({ onClick, text, backgroundColor }) => {
   return (
     <ButtonBox onClick={onClick} backgroundColor={backgroundColor}>
       <ButtonText>{text}</ButtonText>
@@ -13,7 +13,7 @@ const ButtonBox = styled.div`
   position: relative;
   display: flex;
   margin-top: 103px;
-  margin-bottom: 130px;
+  margin-bottom: 70px;
   justify-content: center;
   align-items: center;
   width: 197px;
