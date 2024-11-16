@@ -7,6 +7,7 @@ import RainProbability from "../components/RainProbability";
 import { useLocationInfo } from "../context/GeoInfoContext";
 import { axiosInstance } from "../apis/axiosInstance";
 import { SyncLoader } from "react-spinners";
+import { useGeoLocation } from "../hooks/useGeoLocation";
 
 const MainPageContainer = styled.div`
   display: flex;
@@ -45,6 +46,24 @@ const GoreadyInfoPage = () => {
   const { geoLocation, updateLocation } = useLocationInfo();
   const [weatherInfo, setWeatherInfo] = useState("");
   const [maskInfo, setMaskInfo] = useState("");
+  const { location, getLocation } = useGeoLocation();
+
+  useEffect(() => {
+    if (location && location.latitude && location.longitude) {
+      updateLocation(location.latitude, location.longitude);
+    }
+  }, [location]);
+
+  useEffect(() => {
+    const storedLatitude = localStorage.getItem("latitude");
+    const storedLongitude = localStorage.getItem("longitude");
+
+    if (storedLatitude && storedLongitude) {
+      updateLocation(parseFloat(storedLatitude), parseFloat(storedLongitude));
+    }
+
+    getLocation();
+  }, []);
 
   const fetchWeatherData = async () => {
     if (geoLocation.latitude != null && geoLocation.longitude != null) {
@@ -73,14 +92,6 @@ const GoreadyInfoPage = () => {
       }
     }
   };
-
-  useEffect(() => {
-    const storedLatitude = localStorage.getItem("latitude");
-    const storedLongitude = localStorage.getItem("longitude");
-    if (storedLatitude && storedLongitude) {
-      updateLocation(parseFloat(storedLatitude), parseFloat(storedLongitude));
-    }
-  }, []);
 
   useEffect(() => {
     fetchWeatherData();

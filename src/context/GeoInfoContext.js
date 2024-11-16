@@ -17,14 +17,6 @@ export const GeoInfoProvider = ({ children }) => {
     console.log("Location updated:", { latitude, longitude });
   };
 
-  useEffect(() => {
-    console.log("Updated geoLocation:", geoLocation);
-    if (geoLocation.latitude != null && geoLocation.longitude != null) {
-      localStorage.setItem("latitude", geoLocation.latitude);
-      localStorage.setItem("longitude", geoLocation.longitude);
-    }
-  }, [geoLocation]);
-
   return (
     <GeoInfoContext.Provider value={{ updateLocation, geoLocation }}>
       {children}
