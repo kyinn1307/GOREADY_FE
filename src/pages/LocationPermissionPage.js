@@ -13,7 +13,7 @@ import { SyncLoader } from "react-spinners";
 const geolocationOptions = {
   enableHighAccuracy: true,
   timeout: 1000 * 10,
-  maximumAge: 1000 * 3600 * 2,
+  maximumAge: 1000 * 3600 * 1,
 };
 
 export const LocationPermissionPage = () => {
@@ -25,11 +25,9 @@ export const LocationPermissionPage = () => {
   useEffect(() => {
     if (location && location.latitude != null && location.longitude != null) {
       updateLocation(location.latitude, location.longitude);
-      console.log("위도 경도", geoLocation);
       setIsLoading(false);
       navigate("/info");
     } else if (error) {
-      console.log("Error:", error);
       setIsLoading(false);
     }
   }, [location, error]);
