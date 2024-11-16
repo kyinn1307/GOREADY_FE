@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { ReactComponent as GoReadyLogo } from "../assets/images/goReadyLogo.svg";
 import Temperature from "../components/Temperature";
 import Mask from "../components/Mask";
 import RainProbability from "../components/RainProbability";
@@ -23,14 +22,6 @@ const Divider = styled.div`
   width: 100%;
   height: 1px;
   background-color: #ebedf0;
-`;
-
-const StyledLogo = styled(GoReadyLogo)`
-  position: absolute;
-  top: 33px;
-  left: 264px;
-  width: 70.2px;
-  height: 30px;
 `;
 
 const Loading = styled.div`
