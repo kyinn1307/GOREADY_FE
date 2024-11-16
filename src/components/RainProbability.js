@@ -37,11 +37,18 @@ const RainMessage = styled.small`
   position: absolute;
   top: 561px;
   left: 0;
-  color: ${(props) => (props.isUmbrella ? "#f40" : "#007AFF")};
   font-size: 25px;
   font-style: normal;
   font-weight: 400;
   line-height: 0px;
+`;
+
+const UmbrellaMessage = styled(RainMessage)`
+  color: #ff4400;
+`;
+
+const NoUmbrellaMessage = styled(RainMessage)`
+  color: #007AFF;
 `;
 
 const RainIcon = styled.img`
@@ -61,15 +68,17 @@ const XRainIcon = styled.img`
   flex-shrink: 0;
 `;
 
-const RainProbability = ({ rainPer, isUmbrella }) => {
+const RainProbability = ({ isUmbrella,rainPer }) => {
   return (
     <RainContainer>
       <RainText>강수확률</RainText>
       <RainValue>{rainPer}%</RainValue>
-      <RainMessage isUmbrella={isUmbrella}>
-        {isUmbrella ? "우산을 챙기세요" : "우산은 괜찮아요"}
-      </RainMessage>
-      {!isUmbrella ? (
+      {isUmbrella ? (
+        <UmbrellaMessage>우산을 챙기세요</UmbrellaMessage>
+      ) : (
+        <NoUmbrellaMessage>우산은 괜찮아요</NoUmbrellaMessage>
+      )}
+      {isUmbrella ? (
         <RainIcon
           src={require("../assets/images/umbrella.png")}
           alt="Umbrella icon"
