@@ -12,7 +12,7 @@ const MaskText = styled.h3`
   position: absolute;
   top: 256px;
   left: 0;
-  color: ${(props) => (props.isMask ? "#f40" : "#007AFF")};
+  color: ${(props) => (props.mask ? "#f40" : "#007AFF")};
   font-family: Pretendard;
   font-size: 25px;
   font-style: normal;

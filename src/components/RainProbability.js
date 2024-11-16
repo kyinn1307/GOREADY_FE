@@ -35,7 +35,7 @@ const RainMessage = styled.small`
   position: absolute;
   top: 561px;
   left: 0;
-  color: ${(props) => (props.isUmbrella ? "#f40" : "#007AFF")};
+  color: ${(props) => (props.umbrella ? "#f40" : "#007AFF")};
   font-size: 25px;
   font-style: normal;
   font-weight: 400;
