@@ -13,7 +13,7 @@ import { SyncLoader } from "react-spinners";
 const geolocationOptions = {
   enableHighAccuracy: true,
   timeout: 1000 * 10,
-  maximumAge: 1000 * 3600 * 24,
+  maximumAge: 1000 * 3600 * 2,
 };
 
 export const LocationPermissionPage = () => {
