@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { ReactComponent as Umbrella } from "../assets/images/umbrella.svg";
+import { ReactComponent as NoUmbrella } from "../assets/images/noumbrella.svg";
 
 const RainContainer = styled.div`
-  position: absolute;
-  top: 0px;
-  left: 49px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `;
 
-const RainText = styled.h3`
-  position: absolute;
-  top: 496px;
-  left: 0;
+const RainText = styled.div`
+  position: relative;
+  margin-top: 37px;
   color: #000;
-  font-family: Pretendard;
+  width: 100px;
+  height: 25px;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
   line-height: 0px;
 `;
 
-const RainValue = styled.p`
-  position: absolute;
-  top: 470px;
-  left: 210px;
+const RainValue = styled.div`
+  position: relative;
+  margin-top: 30px;
+  margin-left: 52px;
   color: var(--WF-Base-800, #2d3648);
-  font-family: Pretendard;
   font-size: 40px;
   font-style: normal;
   font-weight: 300;
@@ -33,53 +34,54 @@ const RainValue = styled.p`
   letter-spacing: 0.4px;
 `;
 
-const RainMessage = styled.small`
-  position: absolute;
-  top: 561px;
-  left: 0;
+const RainMessage = styled.div`
+  position: relative;
+  margin-top: 16px;
   color: ${(props) => (props.umbrella ? "#f40" : "#007AFF")};
   font-size: 25px;
   font-style: normal;
   font-weight: 400;
-  line-height: 0px;
 `;
 
-const RainIcon = styled.img`
-  position: absolute;
-  top: 603px;
-  left: 193px;
+const StyledUmbrella = styled(Umbrella)`
+  position: relative;
   width: 100px;
   height: 98px;
-  flex-shrink: 0;
+  margin-top: 42.5px;
+  margin-left: 242px;
 `;
-const XRainIcon = styled.img`
-  position: absolute;
-  top: 603px;
-  left: 193px;
+const StyledNoUmbrella = styled(NoUmbrella)`
+  position: relative;
   width: 100px;
   height: 98px;
-  flex-shrink: 0;
+  margin-top: 42.5px;
+  margin-left: 242px;
+`;
+const TopContentWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+`;
+const TextContainer = styled.div`
+  position: relative;
+  display: flex;
+  margin-left: 49px;
+  flex-direction: column;
 `;
 
 const RainProbability = ({ rainPer, umbrella }) => {
   return (
     <RainContainer>
-      <RainText>강수확률</RainText>
-      <RainValue>{rainPer}%</RainValue>
-      <RainMessage umbrella={umbrella}>
-        {umbrella ? "우산을 챙기세요" : "우산은 괜찮아요"}
-      </RainMessage>
-      {umbrella ? (
-        <RainIcon
-          src={require("../assets/images/umbrella.png")}
-          alt="Umbrella icon"
-        />
-      ) : (
-        <XRainIcon
-          src={require("../assets/images/noumbrella.png")}
-          alt="No Umbrella icon"
-        />
-      )}
+      <TopContentWrapper>
+        <TextContainer>
+          <RainText>강수확률</RainText>
+          <RainMessage umbrella={umbrella}>
+            {umbrella ? "우산을 챙기세요" : "우산은 괜찮아요"}
+          </RainMessage>
+        </TextContainer>
+        <RainValue>{rainPer}%</RainValue>
+      </TopContentWrapper>
+      {umbrella ? <StyledUmbrella /> : <StyledNoUmbrella />}
     </RainContainer>
   );
 };
