@@ -59,6 +59,7 @@ const IsMaskIcon = styled.img`
   height: 50px;
   flex-shrink: 0;
 `;
+
 const NoMaskIcon = styled.img`
   position: absolute;
   top: 331px;

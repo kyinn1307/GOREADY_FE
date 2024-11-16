@@ -23,6 +23,7 @@ const LocationText = styled.span`
   top: 55px;
   left: 30px;
   color: #000;
+  font-family: Pretendard;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
@@ -31,9 +32,10 @@ const LocationText = styled.span`
 
 const TemperatureText = styled.h3`
   position: absolute;
-  top: 97px;
+  top: 64px;
   left: 0;
   color: #000;
+  font-family: Pretendard;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -45,9 +47,10 @@ const TemperatureText = styled.h3`
 
 const TemperatureValue = styled.p`
   position: absolute;
-  top: 154px;
+  top: 124px;
   left: 202px;
   color: var(--WF-Base-800, #2d3648);
+  font-family: Pretendard;
   font-size: 40px;
   font-style: normal;
   font-weight: 300;
@@ -59,6 +62,7 @@ const TemperatureRange = styled.div`
   position: absolute;
   top: 173px;
   left: 0;
+  font-family: Pretendard;
   font-style: normal;
 
   span {
@@ -75,11 +79,7 @@ const TemperatureRange = styled.div`
     font-size: 16px;
     color: #f40;
   }
-  .arrow {
-    margin-left: 15px;
-    color: black;
-    font-size: 16px;
-  }
+
   .change {
     margin-left: 5px;
     color: ${({ changeColor }) => changeColor || "#000"};

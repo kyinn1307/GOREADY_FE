@@ -10,10 +10,10 @@ import { SyncLoader } from "react-spinners";
 import { useGeoLocation } from "../hooks/useGeoLocation";
 
 const MainPageContainer = styled.div`
-  display: flex;
   position: relative;
   justify-content: center;
   width: 393px;
+  height: 852px;
   background-color: #fafafa;
 `;
 
