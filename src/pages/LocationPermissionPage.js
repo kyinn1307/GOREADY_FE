@@ -83,6 +83,7 @@ const Loading = styled.div`
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  font-style: Pretendard;
 `;
 
 const Container = styled.div`
@@ -92,6 +93,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 393px;
+  font-style: Pretendard;
 `;
 
 const StyledLogo = styled(GoReadyLogo)`

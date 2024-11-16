@@ -17,9 +17,8 @@ const RainText = styled.div`
   width: 100px;
   height: 25px;
   font-size: 25px;
-  font-style: normal;
+  font-style: Pretendard;
   font-weight: 600;
-  line-height: 0px;
 `;
 
 const RainValue = styled.div`
@@ -28,7 +27,7 @@ const RainValue = styled.div`
   margin-left: 52px;
   color: var(--WF-Base-800, #2d3648);
   font-size: 40px;
-  font-style: normal;
+  font-style: Inter;
   font-weight: 300;
   line-height: 120%; /* 48px */
   letter-spacing: 0.4px;
@@ -39,7 +38,7 @@ const RainMessage = styled.div`
   margin-top: 16px;
   color: ${(props) => (props.umbrella ? "#f40" : "#007AFF")};
   font-size: 25px;
-  font-style: normal;
+  font-style: Pretendard;
   font-weight: 400;
 `;
 

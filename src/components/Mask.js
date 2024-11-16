@@ -47,7 +47,7 @@ const MaskAlarm = styled.div`
 const StyledMaskIcon = styled(MaskIcon)`
   position: relative;
   margin-top: 20.5px;
-  margin-left: 63px;
+  margin-left: 45px;
   width: 114px;
   height: 114px;
   flex-shrink: 0;
