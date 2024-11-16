@@ -12,6 +12,7 @@ import { useGeoLocation } from "../hooks/useGeoLocation";
 const MainPageContainer = styled.div`
   display: flex;
   position: relative;
+  flex-direction: column;
   justify-content: center;
   width: 393px;
 `;
