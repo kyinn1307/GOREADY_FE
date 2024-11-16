@@ -110,10 +110,10 @@ const GoreadyInfoPage = () => {
     <MainPageContainer>
       <StyledLogo />
       <Temperature weatherInfo={weatherInfo} currLocation={maskInfo.address} />
-      <Mask alert={maskInfo.alert} isMask={maskInfo.isMask} />
+      <Mask alert={maskInfo.alert} mask={maskInfo.mask} />
       <RainProbability
         rainPer={weatherInfo.rainPer}
-        isUmbrella={weatherInfo.isUmbrella}
+        umbrella={weatherInfo.umbrella}
       />
       <Divider top={251} />
       <Divider top={470} />

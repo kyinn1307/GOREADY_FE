@@ -68,14 +68,14 @@ const NoMaskIcon = styled.img`
   flex-shrink: 0;
 `;
 
-const Mask = ({ alert, isMask }) => {
+const Mask = ({ alert, mask }) => {
   return (
     <MaskContainer>
-      <MaskText isMask={isMask}>
-        {isMask ? "마스크를 꼭 착용하세요" : "마스크는 필요없어요"}
+      <MaskText mask={mask}>
+        {mask ? "마스크를 꼭 착용하세요" : "마스크는 필요없어요"}
       </MaskText>
       {alert && <MaskAlarm>미세먼지 경보</MaskAlarm>}
-      {isMask ? (
+      {mask ? (
         <>
           <MaskIcon
             src={require("../assets/images/mask.png")}

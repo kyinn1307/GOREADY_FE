@@ -59,15 +59,15 @@ const XRainIcon = styled.img`
   flex-shrink: 0;
 `;
 
-const RainProbability = ({ rainPer, isUmbrella }) => {
+const RainProbability = ({ rainPer, umbrella }) => {
   return (
     <RainContainer>
       <RainText>강수확률</RainText>
       <RainValue>{rainPer}%</RainValue>
-      <RainMessage isUmbrella={isUmbrella}>
-        {isUmbrella ? "우산을 챙기세요" : "우산은 괜찮아요"}
+      <RainMessage umbrella={umbrella}>
+        {umbrella ? "우산을 챙기세요" : "우산은 괜찮아요"}
       </RainMessage>
-      {isUmbrella ? (
+      {umbrella ? (
         <RainIcon
           src={require("../assets/images/umbrella.png")}
           alt="Umbrella icon"
