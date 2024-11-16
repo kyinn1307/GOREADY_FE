@@ -1,27 +1,41 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as LocationButton } from "../assets/images/locationButton.svg";
+import { ReactComponent as GoReadyLogo } from "../assets/images/goReadyLogo.svg";
 import { useLocationInfo } from "../context/GeoInfoContext";
+
 const TemperatureContainer = styled.div`
-  position: absolute;
-  top: 0px;
-  left: 49px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `;
 
+const TopWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 33px;
+`;
+
+const StyledLogo = styled(GoReadyLogo)`
+  position: relative;
+  width: 70.2px;
+  height: 30px;
+  margin-left: 140px;
+`;
+
 const StyledLocationButton = styled(LocationButton)`
-  position: absolute;
-  left: 0px;
-  top: 45px;
+  position: relative;
+  margin-left: 49px;
   width: 23px;
   height: 20px;
   cursor: pointer;
 `;
 
-const LocationText = styled.span`
-  position: absolute;
-  top: 55px;
-  left: 30px;
+const LocationText = styled.div`
+  position: relative;
+  margin-left: 7px;
   color: #000;
   font-size: 15px;
   font-style: normal;
@@ -29,24 +43,31 @@ const LocationText = styled.span`
   line-height: 0px;
 `;
 
-const TemperatureText = styled.h3`
-  position: absolute;
-  top: 97px;
-  left: 0;
+const TemperatureText = styled.div`
+  position: relative;
+  margin-top: 22.5px;
+  text-align: center;
   color: #000;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
+  width: 100%;
 
   .colored {
     color: ${({ changeColor }) => changeColor || "#000"};
   }
 `;
 
-const TemperatureValue = styled.p`
-  position: absolute;
-  top: 154px;
-  left: 202px;
+const TempInfoBox = styled.div`
+  position: relative;
+  display: flex;
+  margin-top: 43.5px;
+  align-items: center;
+`;
+
+const TemperatureValue = styled.div`
+  position: relative;
+  margin-left: 58px;
   color: var(--WF-Base-800, #2d3648);
   font-size: 40px;
   font-style: normal;
@@ -56,9 +77,7 @@ const TemperatureValue = styled.p`
 `;
 
 const TemperatureRange = styled.div`
-  position: absolute;
-  top: 173px;
-  left: 0;
+  position: relative;
   font-style: normal;
 
   span {
@@ -67,6 +86,7 @@ const TemperatureRange = styled.div`
   }
 
   .low {
+    margin-left: 50px;
     font-size: 16px;
     color: #007bff;
   }
@@ -138,17 +158,22 @@ const Temperature = ({ weatherInfo, currLocation }) => {
 
   return (
     <TemperatureContainer>
-      <StyledLocationButton onClick={handleLocationUpdate} />
-      <LocationText>{currLocation}</LocationText>
+      <TopWrapper>
+        <StyledLocationButton onClick={handleLocationUpdate} />
+        <LocationText>{currLocation}</LocationText>
+        <StyledLogo />
+      </TopWrapper>
       <TemperatureText changeColor={changeColor}>{tempDiffTxt}</TemperatureText>
-      <TemperatureValue>{weatherInfo?.currentTemp}°C</TemperatureValue>
-      <TemperatureRange changeColor={changeColor}>
-        <span className="low">{weatherInfo?.lowTemp}°C</span>
-        <span>–</span>
-        <span className="high">{weatherInfo?.highTemp}°C</span>
-        <span className="arrow">{arrowDirection}</span>
-        <span className="change">{weatherDiff}</span>
-      </TemperatureRange>
+      <TempInfoBox>
+        <TemperatureRange changeColor={changeColor}>
+          <span className="low">{weatherInfo?.lowTemp}°C</span>
+          <span>–</span>
+          <span className="high">{weatherInfo?.highTemp}°C</span>
+          <span className="arrow">{arrowDirection}</span>
+          <span className="change">{weatherDiff}</span>
+        </TemperatureRange>
+        <TemperatureValue>{weatherInfo?.currentTemp}°C</TemperatureValue>
+      </TempInfoBox>
     </TemperatureContainer>
   );
 };

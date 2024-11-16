@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { ReactComponent as MaskIcon } from "../assets/images/mask.svg";
+import { ReactComponent as NoMaskIcon } from "../assets/images/nomask.svg";
 
 const MaskContainer = styled.div`
-  position: absolute;
-  top: 0px;
-  left: 49px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `;
 
-const MaskText = styled.h3`
-  position: absolute;
-  top: 256px;
-  left: 0;
+const MaskText = styled.div`
+  position: relative;
+  margin-top: 32.5px;
+  margin-left: 49px;
   color: ${(props) => (props.mask ? "#f40" : "#007AFF")};
   font-family: Pretendard;
   font-size: 25px;
@@ -20,13 +22,13 @@ const MaskText = styled.h3`
   line-height: 30px;
 `;
 
-const MaskAlarm = styled.h3`
-  position: absolute;
-  top: 316px;
-  left: 0;
+const MaskAlarm = styled.div`
+  position: relative;
+  margin-top: 19.5px;
+  margin-left: 47px;
   border-radius: 18px;
-  border: 1px solid #f40;
-  background: #f40;
+  border: 1px solid ${(props) => (props.alert ? "#f40" : "transparent")};
+  background: ${(props) => (props.alert ? "#f40" : "transparent")};
   width: 132px;
   height: 29px;
   color: #fff;
@@ -36,36 +38,34 @@ const MaskAlarm = styled.h3`
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0.13px;
-  cursor: pointer;
+  cursor: ${(props) => (props.alert ? "pointer" : "default")};
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const MaskIcon = styled.img`
-  position: absolute;
-  top: 331px;
-  left: 193px;
+const StyledMaskIcon = styled(MaskIcon)`
+  position: relative;
+  margin-top: 20.5px;
+  margin-left: 63px;
   width: 114px;
   height: 114px;
   flex-shrink: 0;
 `;
 
-const IsMaskIcon = styled.img`
-  position: absolute;
-  top: 343px;
-  left: 185px;
-  width: 59px;
-  height: 50px;
-  flex-shrink: 0;
-`;
-const NoMaskIcon = styled.img`
-  position: absolute;
-  top: 331px;
-  left: 193px;
+const StyledNoMaskIcon = styled(NoMaskIcon)`
+  position: relative;
+  margin-top: 20.5px;
+  margin-left: 63px;
   width: 114px;
   height: 114px;
   flex-shrink: 0;
+`;
+
+const MaskContent = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
 `;
 
 const Mask = ({ alert, mask }) => {
@@ -74,24 +74,16 @@ const Mask = ({ alert, mask }) => {
       <MaskText mask={mask}>
         {mask ? "마스크를 꼭 착용하세요" : "마스크는 필요없어요"}
       </MaskText>
-      {alert && <MaskAlarm>미세먼지 경보</MaskAlarm>}
-      {mask ? (
-        <>
-          <MaskIcon
-            src={require("../assets/images/mask.png")}
-            alt="Mask icon"
-          />
-          <IsMaskIcon
-            src={require("../assets/images/ismask.png")}
-            alt="Is Mask icon"
-          />
-        </>
-      ) : (
-        <NoMaskIcon
-          src={require("../assets/images/nomask.png")}
-          alt="No Mask icon"
-        />
-      )}
+      <MaskContent>
+        <MaskAlarm alert={alert}>{alert ? "미세먼지 경보" : ""}</MaskAlarm>
+        {mask ? (
+          <>
+            <StyledMaskIcon />
+          </>
+        ) : (
+          <StyledNoMaskIcon />
+        )}
+      </MaskContent>
     </MaskContainer>
   );
 };
