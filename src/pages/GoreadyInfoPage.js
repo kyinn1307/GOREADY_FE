@@ -25,10 +25,14 @@ const Divider = styled.div`
 `;
 
 const Loading = styled.div`
-  position: absolute;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* 부모 컨테이너의 위치 기준 */
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 완전 중앙으로 이동 */
   font-family: "Pretendard";
 `;
 
